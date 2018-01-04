@@ -1,0 +1,26 @@
+tags:
+- postgresql
+inputs:
+- name: aug_pg_hba
+  type:
+    name: AugeasLensResult
+- name: aug_postgresql
+  type:
+    name: AugeasLensResult
+outputs:
+- name: pg_scan_info
+  type:
+    name: TypePGScan
+description: |
+  Postgres scanner actor scans configuration and data of PostgreSQL.
+  It assesses the feasibility of data provided by augeas actor and adds some
+  on its own.
+
+  Inputs:
+    None
+  Outputs:
+    pg_info - gathered facts about the postgres installation
+execute:
+  script-file: pgscanner.py
+  executable: /usr/bin/python
+
